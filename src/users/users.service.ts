@@ -28,14 +28,14 @@ export class UsersService {
     return this.userModel.find();
   }
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     if (!isValidObjectId(id))
       throw new BadGatewayException('Id provided is not valid!');
 
     return await this.userModel.findById(id);
   }
 
-  async update(id: number, updateUserDto: UpdateUserDto) {
+  async update(id: string, updateUserDto: UpdateUserDto) {
     if (!isValidObjectId(id))
       throw new BadGatewayException('Id provided is not valid!');
 
@@ -46,7 +46,7 @@ export class UsersService {
     return { message: 'User has updates succefully!', data: user };
   }
 
-  async remove(id: number) {
+  async remove(id: string) {
     if (!isValidObjectId(id))
       throw new BadGatewayException('Id provided is not valid!');
 
